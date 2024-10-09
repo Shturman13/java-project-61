@@ -1,17 +1,18 @@
 package hexlet.code;
 
+import hexlet.code.games.Calculator;
+import hexlet.code.games.Even;
+
 import java.util.Scanner;
 
 
 public class App {
     public static void main(String[] args) {
         var gameStartPoint = "Please enter the game number and press Enter";
-//        var greetChoice = 1;
-//        var evenChoice = 2;
-//        var exitChoice = 0;
-        String[] menu = {"1 - Greet", "2 - Even", "0 - Exit"};
-
         System.out.println(gameStartPoint);
+
+        String[] menu = {"1 - Greet", "2 - Even", "3 - Calc", "0 - Exit"};
+
         for (var menuItem : menu) {
             System.out.println(menuItem);
         }
@@ -19,17 +20,22 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         String choiceToPlay = scanner.next();
 
-        if (choiceToPlay.equals("1")) {
-            System.out.println("Your choice: 1");
-            System.out.println("Welcome to the Brain Games!");
-            Cli.sayHello();
+        switch (choiceToPlay) {
+            case ("1"):
+                Engine.welcomeMessage(1);
+                break;
 
-        } else if (choiceToPlay.equals("2")) {
-            System.out.println("Your choice: 2");
-            System.out.println("Welcome to the Brain Games!");
-            Cli.sayHello();
-            Even.evenNumbersGame();
+            case ("2"):
+                Engine.welcomeMessage(2);
+                Even.evenNumbersGame();
+                break;
 
+            case ("3"):
+                Engine.welcomeMessage(3);
+                Calculator.calculate();
+
+            default:
+                System.out.println("wrong input");
         }
     }
 }
