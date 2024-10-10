@@ -43,8 +43,7 @@ public class Calculator {
                 System.out.println("Correct!");
                 counter++;
             } else {
-                System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.\n Let's try again, " + Cli.userName + "!");
+                Engine.wrongAnswer(correctAnswer, playerAnswer);
                 break;
             }
 
