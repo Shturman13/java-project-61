@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calculator;
 import hexlet.code.games.Even;
 import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class App {
         var gameStartPoint = "Please enter the game number and press Enter";
         System.out.println(gameStartPoint);
 
-        String[] menu = {"1 - Greet", "2 - Even", "3 - Calc", "4 - GCD", "0 - Exit"};
+        String[] menu = {"1 - Greet", "2 - Even", "3 - Calc", "4 - GCD", "5 - Progression", "0 - Exit"};
 
         for (var menuItem : menu) {
             System.out.println(menuItem);
@@ -38,6 +39,10 @@ public class App {
             case ("4"):
                 Engine.welcomeMessage(4);
                 Gcd.findGreatestDivisor();
+                break;
+            case ("5"):
+                Engine.welcomeMessage(5);
+                Progression.missingArgument();
                 break;
             default:
                 System.out.println("wrong input");
