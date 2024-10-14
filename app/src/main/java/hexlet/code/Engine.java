@@ -15,7 +15,6 @@ public class Engine {
 
     public static void sayHello() {
         System.out.println("May I have your name?");
-        userName();
         System.out.println("Hello, " + userName() + "!");
     }
 
