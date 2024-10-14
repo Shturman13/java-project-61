@@ -6,8 +6,7 @@ public class Progression {
     public static void missingArgument() {
         System.out.println("What number is missing in the progression?");
         int counter = 0;
-        var numberOfAttempts = 3;
-        for (var i = 0; i < numberOfAttempts; i++) {
+        for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var finalProgression = Engine.progressionWithDots(Engine.progression(),
                     Engine.randomProgressionNumber(Engine.progression()));
             System.out.println("Question: " + finalProgression[0]);

@@ -25,26 +25,26 @@ public class App {
             case ("0"):
                 break;
             case ("1"):
-                Engine.welcomeMessage(1);
+                Engine.welcomeMessage(choiceToPlay);
                 break;
             case ("2"):
-                Engine.welcomeMessage(2);
+                Engine.welcomeMessage(choiceToPlay);
                 Even.evenNumbersGame();
                 break;
             case ("3"):
-                Engine.welcomeMessage(3);
+                Engine.welcomeMessage(choiceToPlay);
                 Calculator.calculate();
                 break;
             case ("4"):
-                Engine.welcomeMessage(4);
+                Engine.welcomeMessage(choiceToPlay);
                 Gcd.findGreatestDivisor();
                 break;
             case ("5"):
-                Engine.welcomeMessage(5);
+                Engine.welcomeMessage(choiceToPlay);
                 Progression.missingArgument();
                 break;
             case ("6"):
-                Engine.welcomeMessage(6);
+                Engine.welcomeMessage(choiceToPlay);
                 Prime.primeNumber();
                 break;
             default:

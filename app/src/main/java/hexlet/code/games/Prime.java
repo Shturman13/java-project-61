@@ -7,8 +7,7 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         int counter = 0;
         String correctAnswer;
-        var numberOfAttempts = 3;
-        for (var i = 0; i < numberOfAttempts; i++) {
+        for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var randomNumber = Engine.randomNumber();
             System.out.println("Question: " + randomNumber);
             var playerAnswer = Engine.playerInput();

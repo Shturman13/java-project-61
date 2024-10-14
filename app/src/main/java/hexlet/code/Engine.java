@@ -5,8 +5,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    // METHODS TO GET USER INPUT
 
+    public static final int NUMBEROFATTEMPTS = 3;
+    public static final int RANGEOFRANDOM = 100;
+    public static final int LENGTHOFPROGRESSION = 10;
+    public static final int SMALLRANDOMNUMBER = 10;
+    public static final int RANDOMRANGETONINE = 9;
+
+    // METHODS TO GET USER INPUT
     private static String userName;
 
     public static String userName() {
@@ -22,7 +28,7 @@ public class Engine {
 
 
     //    COMMON METHODS FOR App.java
-    public static void welcomeMessage(int menuItemNumber) {
+    public static void welcomeMessage(String menuItemNumber) {
         System.out.println("Your choice: " + menuItemNumber);
         System.out.println("Welcome to the Brain Games!");
         sayHello();
@@ -30,8 +36,8 @@ public class Engine {
 
 //    COMMON METHODS FOR ALL GAMES
     public static void congratulations(int counter) {
-        var numberOfAttempts = 3;
-        if (counter == numberOfAttempts) {
+//        var numberOfAttempts = 3;
+        if (counter == NUMBEROFATTEMPTS) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
@@ -47,8 +53,7 @@ public class Engine {
     }
 
     public static int randomNumber() {
-        var rangeOfRandom = 100;
-        return ((int) (Math.random() * rangeOfRandom));
+        return ((int) (Math.random() * RANGEOFRANDOM));
     }
 
     public static String playerInput() {
@@ -124,11 +129,10 @@ public class Engine {
 
 //    METHODS FOR Progression.java
     public static int[] progression() {
-        var lengthOfProgression = 10;
-        int[] progression = new int[lengthOfProgression];
-        var smallRandomNumber = 10;
-        int increment = Engine.randomNumber() / smallRandomNumber;
-        int initialNumber = Engine.randomNumber() / smallRandomNumber;
+        int[] progression = new int[LENGTHOFPROGRESSION];
+//        var smallRandomNumber = 10;
+        int increment = Engine.randomNumber() / SMALLRANDOMNUMBER;
+        int initialNumber = Engine.randomNumber() / SMALLRANDOMNUMBER;
         progression[0] = initialNumber;
         for (var i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + increment;
@@ -137,15 +141,14 @@ public class Engine {
     }
 
     public static int randomProgressionNumber(int[] progression) {
-        var randomRangeToNine = 9;
-        var randomIndex = (int) ((Math.random()) * randomRangeToNine);
+//        var randomRangeToNine = 9;
+        var randomIndex = (int) ((Math.random()) * RANDOMRANGETONINE);
         var correctAnswer = progression[randomIndex];
         return correctAnswer;
     }
 
     public static String[] progressionWithDots(int[] progression, int correctAnswer) {
-        var lengthOfProgression = 10;
-        String[] progressionWithDots = new String[lengthOfProgression];
+        String[] progressionWithDots = new String[LENGTHOFPROGRESSION];
         correctAnswer = randomProgressionNumber(progression);
         for (var i = 0; i < progression.length; i++) {
             if (progression[i] == correctAnswer) {

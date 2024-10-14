@@ -9,8 +9,7 @@ public class Even {
 
         String correctAnswer;
         var counter = 0;
-        var numberOfAttempts = 3;
-        for (var i = 0; i < numberOfAttempts; i++) {
+        for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var randomNumber = Engine.randomNumber();
             System.out.println("Question: " + randomNumber);
 
