@@ -148,10 +148,11 @@ public class Engine {
         String[] progressionWithDots = new String[lengthOfProgression];
         correctAnswer = randomProgressionNumber(progression);
         for (var i = 0; i < progression.length; i++) {
-            if (progression[i] != correctAnswer) {
-                progressionWithDots[i] = String.valueOf(progression[i]);
-            } else {
+            if (progression[i] == correctAnswer) {
                 progressionWithDots[i] = "..";
+            } else {
+                progressionWithDots[i] = String.valueOf(progression[i]);
+
             }
         }
 
