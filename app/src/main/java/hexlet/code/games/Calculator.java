@@ -6,7 +6,8 @@ public class Calculator {
     public static void calculate() {
         System.out.println("What is the result of the expression?");
         int counter = 0;
-        for (var i = 0; i < 3; i++) {
+        var numberOfAttempts = 3;
+        for (var i = 0; i < numberOfAttempts; i++) {
             int correctAnswer = Engine.correctAnswerWithSign(Engine.randomSign());
             String playerAnswer = Engine.playerInput();
 

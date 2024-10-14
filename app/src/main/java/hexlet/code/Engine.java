@@ -5,32 +5,49 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-//    COMMON METHODS FOR App.java
+    // METHODS TO GET USER INPUT
+    public static String userName() {
+        Scanner scanner = new Scanner(System.in);
+        String userName;
+        userName = scanner.next();
+        return userName;
+    }
+
+    public static void sayHello() {
+        System.out.println("May I have your name?");
+        userName();
+        System.out.println("Hello, " + userName() + "!");
+    }
+
+
+    //    COMMON METHODS FOR App.java
     public static void welcomeMessage(int menuItemNumber) {
         System.out.println("Your choice: " + menuItemNumber);
         System.out.println("Welcome to the Brain Games!");
-        Cli.sayHello();
+        sayHello();
     }
 
 //    COMMON METHODS FOR ALL GAMES
     public static void congratulations(int counter) {
-        if (counter == 3) {
-            System.out.println("Congratulations, " + Cli.userName + "!");
+        var numberOfAttempts = 3;
+        if (counter == numberOfAttempts) {
+            System.out.println("Congratulations, " + userName() + "!");
         }
     }
 
     public static void wrongAnswer(int correctAnswer, String playerAnswer) {
         System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
-                + correctAnswer + "'.\n Let's try again, " + Cli.userName + "!");
+                + correctAnswer + "'.\n Let's try again, " + userName() + "!");
     }
 
     public static void wrongAnswer(String correctAnswer, String playerAnswer) {
         System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
-                + correctAnswer + "'.\n Let's try again, " + Cli.userName + "!");
+                + correctAnswer + "'.\n Let's try again, " + userName() + "!");
     }
 
     public static int randomNumber() {
-        return ((int) (Math.random() * 100));
+        var rangeOfRandom = 100;
+        return ((int) (Math.random() * rangeOfRandom));
     }
 
     public static String playerInput() {
@@ -106,9 +123,11 @@ public class Engine {
 
 //    METHODS FOR Progression.java
     public static int[] progression() {
-        int[] progression = new int[10];
-        int increment = Engine.randomNumber() / 10;
-        int initialNumber = Engine.randomNumber() / 10;
+        var lengthOfProgression = 10;
+        int[] progression = new int[lengthOfProgression];
+        var smallRandomNumber = 10;
+        int increment = Engine.randomNumber() / smallRandomNumber;
+        int initialNumber = Engine.randomNumber() / smallRandomNumber;
         progression[0] = initialNumber;
         for (var i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + increment;
@@ -117,13 +136,15 @@ public class Engine {
     }
 
     public static int randomProgressionNumber(int[] progression) {
-        var randomIndex = (int) ((Math.random()) * 9);
+        var randomRangeToNine = 9;
+        var randomIndex = (int) ((Math.random()) * randomRangeToNine);
         var correctAnswer = progression[randomIndex];
         return correctAnswer;
     }
 
     public static String[] progressionWithDots(int[] progression, int correctAnswer) {
-        String[] progressionWithDots = new String[10];
+        var lengthOfProgression = 10;
+        String[] progressionWithDots = new String[lengthOfProgression];
         correctAnswer = randomProgressionNumber(progression);
         for (var i = 0; i < progression.length; i++) {
             if (progression[i] != correctAnswer) {
