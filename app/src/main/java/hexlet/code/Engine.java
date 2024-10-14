@@ -151,7 +151,7 @@ public class Engine {
         String[] progressionWithDots = new String[LENGTHOFPROGRESSION];
         correctAnswer = randomProgressionNumber(progression);
         for (var i = 0; i < progression.length; i++) {
-            if (progression[i] == correctAnswer) {
+            if (correctAnswer == progression[i]) {
                 progressionWithDots[i] = "..";
             } else {
                 progressionWithDots[i] = String.valueOf(progression[i]);
