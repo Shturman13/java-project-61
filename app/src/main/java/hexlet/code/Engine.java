@@ -45,7 +45,7 @@ public class Engine {
         var randomNumber1 = randomNumber();
         var randomNumber2 = randomNumber();
 
-        System.out.println(randomNumber1 + " " + randomNumber2);
+        System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
 
         var maxNumber = Math.max(randomNumber1, randomNumber2);
         var minNumber = Math.min(randomNumber1, randomNumber2);
