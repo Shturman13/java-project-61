@@ -50,6 +50,10 @@ public class Engine {
         var maxNumber = Math.max(randomNumber1, randomNumber2);
         var minNumber = Math.min(randomNumber1, randomNumber2);
 
+        if (minNumber == 0) {
+            return maxNumber;
+        }
+
         do {
             if (maxNumber >= minNumber) {
                 maxNumber = maxNumber % minNumber;
