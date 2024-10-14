@@ -2,29 +2,24 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Even {
-
-    public static void evenNumbersGame() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
+public class Prime {
+    public static void primeNumber() {
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        int counter = 0;
         String correctAnswer;
-        var counter = 0;
-
         for (var i = 0; i < 3; i++) {
             var randomNumber = Engine.randomNumber();
             System.out.println("Question: " + randomNumber);
-
-            if ((randomNumber % 2) == 0) {
+            var playerAnswer = Engine.playerInput();
+            if (Engine.isPrimeNumber(randomNumber)) {
                 correctAnswer = "yes";
             } else {
                 correctAnswer = "no";
             }
-            var playerAnswer = Engine.playerInput();
 
             if (correctAnswer.equals(playerAnswer)) {
                 System.out.println("Correct!");
                 counter++;
-
             } else {
                 Engine.wrongAnswer(correctAnswer, playerAnswer);
                 break;
