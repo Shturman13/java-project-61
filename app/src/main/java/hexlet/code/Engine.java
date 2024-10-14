@@ -6,9 +6,11 @@ import java.util.Scanner;
 
 public class Engine {
     // METHODS TO GET USER INPUT
+
+    private static String userName;
+
     public static String userName() {
         Scanner scanner = new Scanner(System.in);
-        String userName;
         userName = scanner.next();
         return userName;
     }
@@ -30,18 +32,18 @@ public class Engine {
     public static void congratulations(int counter) {
         var numberOfAttempts = 3;
         if (counter == numberOfAttempts) {
-            System.out.println("Congratulations, " + userName() + "!");
+            System.out.println("Congratulations, " + userName + "!");
         }
     }
 
     public static void wrongAnswer(int correctAnswer, String playerAnswer) {
         System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
-                + correctAnswer + "'.\n Let's try again, " + userName() + "!");
+                + correctAnswer + "'.\n Let's try again, " + userName + "!");
     }
 
     public static void wrongAnswer(String correctAnswer, String playerAnswer) {
         System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
-                + correctAnswer + "'.\n Let's try again, " + userName() + "!");
+                + correctAnswer + "'.\n Let's try again, " + userName + "!");
     }
 
     public static int randomNumber() {
