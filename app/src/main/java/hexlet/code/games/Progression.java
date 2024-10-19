@@ -49,6 +49,6 @@ public class Progression {
                 break;
             }
         }
-        Engine.congratulations(Engine.counter);
+        Engine.congratulations();
     }
 }

@@ -36,6 +36,6 @@ public class Calculator {
                 break;
             }
         }
-        Engine.congratulations(Engine.counter);
+        Engine.congratulations();
     }
 }

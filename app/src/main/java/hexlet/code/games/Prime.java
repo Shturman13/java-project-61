@@ -36,6 +36,6 @@ public class Prime {
                 break;
             }
         }
-        Engine.congratulations(Engine.counter);
+        Engine.congratulations();
     }
 }

@@ -36,6 +36,6 @@ public class Gcd {
             }
 
         }
-        Engine.congratulations(Engine.counter);
+        Engine.congratulations();
     }
 }

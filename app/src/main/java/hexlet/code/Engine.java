@@ -10,7 +10,7 @@ public class Engine {
     public static final int RANDOMRANGETONINE = 9;
 
     private static String userName;
-    public static int counter;
+    private static int counter;
 //  Methods for App.java
     private static String userName() {
         Scanner scanner = new Scanner(System.in);
@@ -30,8 +30,8 @@ public class Engine {
     }
 
 //    Common methods for all games
-    public static void congratulations(int numberOfWins) {
-        if (numberOfWins == NUMBEROFATTEMPTS) {
+    public static void congratulations() {
+        if (counter == NUMBEROFATTEMPTS) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

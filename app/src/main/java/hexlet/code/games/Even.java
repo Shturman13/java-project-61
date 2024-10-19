@@ -23,6 +23,6 @@ public class Even {
                 break;
             }
         }
-        Engine.congratulations(Engine.counter);
+        Engine.congratulations();
     }
 }
