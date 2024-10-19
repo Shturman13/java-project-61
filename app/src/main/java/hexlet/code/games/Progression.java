@@ -48,7 +48,6 @@ public class Progression {
                 break;
             }
         }
-
         Engine.congratulations();
     }
 }
