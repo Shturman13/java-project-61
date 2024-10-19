@@ -17,8 +17,7 @@ public class Progression {
 
     private static int randomProgressionNumber(int[] progression) {
         var randomIndex = (int) ((Math.random()) * Engine.RANDOMRANGETONINE);
-        var correctAnswer = progression[randomIndex];
-        return correctAnswer;
+        return progression[randomIndex];
     }
 
     private static String[] progressionWithDots(int[] progression) {
