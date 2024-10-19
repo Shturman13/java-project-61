@@ -3,21 +3,39 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Gcd {
+    private static String[] gcdEvklidMethod() {
+        var randomNumber1 = Engine.randomNumber();
+        var randomNumber2 = Engine.randomNumber();
+
+        var maxNumber = Math.max(randomNumber1, randomNumber2);
+        var minNumber = Math.min(randomNumber1, randomNumber2);
+
+        if (minNumber == 0) {
+            return new String[] {(randomNumber1 + " " + randomNumber2), String.valueOf(maxNumber)};
+        }
+
+        do {
+            if (maxNumber >= minNumber) {
+                maxNumber = maxNumber % minNumber;
+            } else {
+                minNumber = minNumber % maxNumber;
+            }
+
+        } while ((maxNumber > 0) && (minNumber > 0));
+        return new String[] {(randomNumber1 + " " + randomNumber2), String.valueOf(Math.max(maxNumber, minNumber))};
+    }
+
     public static void findGreatestDivisor() {
         System.out.println("Find the greatest common divisor of given numbers.");
-        int counter = 0;
-        for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
-            var correctAnswer = Engine.gcdEvklidMethod();
-            var playerAnswer = Engine.playerInput();
 
-            if (Integer.parseInt(playerAnswer) == correctAnswer) {
-                System.out.println("Correct!");
-                counter++;
-            } else {
-                Engine.wrongAnswer(correctAnswer, playerAnswer);
+        for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
+            var output = gcdEvklidMethod();
+            boolean checkForCorrectAnswer = Engine.commonEngine(output);
+            if (!checkForCorrectAnswer) {
                 break;
             }
+
         }
-        Engine.congratulations(counter);
+        Engine.congratulations(Engine.counter);
     }
 }

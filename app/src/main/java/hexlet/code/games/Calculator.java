@@ -1,23 +1,41 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import java.util.Random;
 
 public class Calculator {
-    public static void calculate() {
-        System.out.println("What is the result of the expression?");
-        int counter = 0;
-        for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
-            int correctAnswer = Engine.correctAnswerWithSign(Engine.randomSign());
-            String playerAnswer = Engine.playerInput();
+    private static char randomSign() {
+        char[] signs = {'+', '-', '*'};
+        Random random = new Random();
+        int randomIndex = random.nextInt(signs.length);
+        return signs[randomIndex];
+    }
 
-            if (Integer.parseInt(playerAnswer) == correctAnswer) {
-                System.out.println("Correct!");
-                counter++;
-            } else {
-                Engine.wrongAnswer(correctAnswer, playerAnswer);
+    private static String[] questionAndCorrectAnswer() {
+        var randomNumber1 = Engine.randomNumber();
+        var randomNumber2 = Engine.randomNumber();
+        var randomSign = randomSign();
+        var question = randomNumber1 + " "
+                + randomSign + " " + randomNumber2;
+        var correctAnswer = switch (randomSign) {
+            case ('+') -> randomNumber1 + randomNumber2;
+            case ('-') -> randomNumber1 - randomNumber2;
+            case ('*') -> randomNumber1 * randomNumber2;
+            default -> throw new IllegalStateException("Unexpected value: " + randomSign);
+        };
+        return new String[] {question, String.valueOf(correctAnswer)};
+    }
+
+    public static void calculator() {
+        System.out.println("What is the result of the expression?");
+
+        for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
+            var output = questionAndCorrectAnswer();
+            boolean checkForCorrectAnswer = Engine.commonEngine(output);
+            if (!checkForCorrectAnswer) {
                 break;
             }
         }
-        Engine.congratulations(counter);
+        Engine.congratulations(Engine.counter);
     }
 }

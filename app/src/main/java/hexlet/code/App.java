@@ -21,34 +21,44 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         String choiceToPlay = scanner.next();
 
+
         switch (choiceToPlay) {
             case ("0"):
+                scanner.close();
                 break;
             case ("1"):
                 Engine.welcomeMessage(choiceToPlay);
+                scanner.close();
                 break;
             case ("2"):
                 Engine.welcomeMessage(choiceToPlay);
-                Even.evenNumbersGame();
+                Even.evenGame();
+                scanner.close();
                 break;
             case ("3"):
                 Engine.welcomeMessage(choiceToPlay);
-                Calculator.calculate();
+                Calculator.calculator();
+                scanner.close();
                 break;
             case ("4"):
                 Engine.welcomeMessage(choiceToPlay);
                 Gcd.findGreatestDivisor();
+                scanner.close();
                 break;
             case ("5"):
                 Engine.welcomeMessage(choiceToPlay);
                 Progression.missingArgument();
+                scanner.close();
                 break;
             case ("6"):
                 Engine.welcomeMessage(choiceToPlay);
                 Prime.primeNumber();
+                scanner.close();
                 break;
             default:
                 System.out.println("wrong input");
+                scanner.close();
         }
+//        scanner.close();
     }
 }
