@@ -20,29 +20,27 @@ public class Progression {
         return progression[randomIndex];
     }
 
-    private static String[] progressionWithDots(int[] progression) {
-        String[] progressionWithDots = new String[Engine.LENGTHOFPROGRESSION];
+    private static String[] stringBuilderMethod(int[] progression) {
+        var result = new StringBuilder();
         var correctAnswer = randomProgressionNumber(progression);
-        for (var i = 0; i < progression.length; i++) {
-            if (correctAnswer == progression[i]) {
-                progressionWithDots[i] = "..";
+        for (var item : progression) {
+            if (correctAnswer == item) {
+                result.append("..");
+                result.append(" ");
             } else {
-                progressionWithDots[i] = String.valueOf(progression[i]);
+                result.append(item);
+                result.append(" ");
+
             }
         }
-
-        String progressionWithoutCommas = Arrays.toString(progressionWithDots).replaceAll(",", "");
-        String preparedProgressionItself = progressionWithoutCommas.substring(1,
-                (progressionWithoutCommas.length() - 1));
-        String[] preparadProgression = {preparedProgressionItself, String.valueOf(correctAnswer)};
-        return preparadProgression;
+        return new String[] {result.toString(), String.valueOf(correctAnswer)};
     }
 
     public static void missingArgument() {
         System.out.println("What number is missing in the progression?");
 
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
-            var output = progressionWithDots(progression());
+            var output = stringBuilderMethod(progression());
             boolean checkForCorrectAnswer = Engine.commonEngine(output);
             if (!checkForCorrectAnswer) {
                 break;
