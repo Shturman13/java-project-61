@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 public class Progression {
     private static int[] progression() {
         int[] progression = new int[Engine.LENGTHOFPROGRESSION];
-        int increment = Engine.randomNumber() / Engine.SMALLRANDOMNUMBER;
+        int increment = (Engine.randomNumber() / Engine.SMALLRANDOMNUMBER) + 1;
         int initialNumber = Engine.randomNumber() / Engine.SMALLRANDOMNUMBER;
         progression[0] = initialNumber;
         for (var i = 1; i < progression.length; i++) {
