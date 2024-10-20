@@ -33,7 +33,7 @@ public class Progression {
 
             }
         }
-        return new String[] {result.toString(), String.valueOf(correctAnswer)};
+        return new String[] {result.toString().trim(), String.valueOf(correctAnswer)};
     }
 
     public static void missingArgument() {
