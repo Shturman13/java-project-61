@@ -28,14 +28,11 @@ public class Prime {
 
     public static void primeNumber() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-
+        var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = questionAndCorrectAnswer();
-            boolean checkForCorrectAnswer = Engine.commonEngine(output);
-            if (!checkForCorrectAnswer) {
-                break;
-            }
+            finalOutput[i] = output;
         }
-        Engine.congratulations();
+        Engine.commonEngine(finalOutput);
     }
 }

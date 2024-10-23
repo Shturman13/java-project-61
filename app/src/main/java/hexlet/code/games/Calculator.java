@@ -28,14 +28,11 @@ public class Calculator {
 
     public static void calculator() {
         System.out.println("What is the result of the expression?");
-
+        var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = questionAndCorrectAnswer();
-            boolean checkForCorrectAnswer = Engine.commonEngine(output);
-            if (!checkForCorrectAnswer) {
-                break;
-            }
+            finalOutput[i] = output;
         }
-        Engine.congratulations();
+        Engine.commonEngine(finalOutput);
     }
 }

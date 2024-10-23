@@ -29,7 +29,6 @@ public class Progression {
             } else {
                 result.append(item);
                 result.append(" ");
-
             }
         }
         return new String[] {result.toString().trim(), String.valueOf(correctAnswer)};
@@ -37,14 +36,11 @@ public class Progression {
 
     public static void missingArgument() {
         System.out.println("What number is missing in the progression?");
-
+        var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = stringBuilderMethod(progression());
-            boolean checkForCorrectAnswer = Engine.commonEngine(output);
-            if (!checkForCorrectAnswer) {
-                break;
-            }
+            finalOutput[i] = output;
         }
-        Engine.congratulations();
+        Engine.commonEngine(finalOutput);
     }
 }

@@ -27,15 +27,11 @@ public class Gcd {
 
     public static void findGreatestDivisor() {
         System.out.println("Find the greatest common divisor of given numbers.");
-
+        var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = gcdEvklidMethod();
-            boolean checkForCorrectAnswer = Engine.commonEngine(output);
-            if (!checkForCorrectAnswer) {
-                break;
-            }
-
+            finalOutput[i] = output;
         }
-        Engine.congratulations();
+        Engine.commonEngine(finalOutput);
     }
 }

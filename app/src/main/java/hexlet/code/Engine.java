@@ -10,7 +10,6 @@ public class Engine {
     public static final int RANDOMRANGETONINE = 9;
 
     private static String userName;
-    private static int counter;
 //  Methods for App.java
     private static String userName() {
         Scanner scanner = new Scanner(System.in);
@@ -30,7 +29,7 @@ public class Engine {
     }
 
 //    Common methods for all games
-    public static void congratulations() {
+    public static void congratulations(int counter) {
         if (counter == NUMBEROFATTEMPTS) {
             System.out.println("Congratulations, " + userName + "!");
         }
@@ -45,25 +44,27 @@ public class Engine {
         return ((int) (Math.random() * RANGEOFRANDOM));
     }
 
-    public static String playerInput() {
+    private static String playerInput() {
         Scanner scanner = new Scanner(System.in);
         String playerAnswer = scanner.next();
-        System.out.println("Your answer: " +  playerAnswer);
+        System.out.println("Your answer: " + playerAnswer);
         return playerAnswer;
     }
 
-//    Engine for all Games
-    public static boolean commonEngine(String[] output) {
-        System.out.println("Question: " + output[0]);
-        var playerAnswer = Engine.playerInput();
-        if (output[1].equals(playerAnswer)) {
-            System.out.println("Correct!");
-            counter++;
-        } else {
-            Engine.wrongAnswer(output[1], playerAnswer);
-            return false;
+    public static void commonEngine(String[][] finalOutput) {
+        int counter = 0;
+        for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
+            System.out.println("Question: " + finalOutput[i][0]);
+            var playerAnswer = Engine.playerInput();
+            if (finalOutput[i][1].equals(playerAnswer)) {
+                System.out.println("Correct!");
+                counter++;
+            } else {
+                Engine.wrongAnswer(finalOutput[i][1], playerAnswer);
+                break;
+            }
         }
-        return true;
+        Engine.congratulations(counter);
     }
 }
 
