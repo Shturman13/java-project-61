@@ -1,12 +1,13 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RandomPoints;
 
 public class Progression {
     private static int[] progression() {
         int[] progression = new int[Engine.LENGTHOFPROGRESSION];
-        int increment = (Engine.randomNumber() / Engine.SMALLRANDOMNUMBER) + 1;
-        int initialNumber = Engine.randomNumber() / Engine.SMALLRANDOMNUMBER;
+        int increment = RandomPoints.randomNumber(RandomPoints.SMALLRANDOM, RandomPoints.MINNUMBER) + 1;
+        int initialNumber = RandomPoints.randomNumber(RandomPoints.SMALLRANDOM, RandomPoints.MINNUMBER);
         progression[0] = initialNumber;
         for (var i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + increment;
@@ -15,7 +16,7 @@ public class Progression {
     }
 
     private static int randomProgressionNumber(int[] progression) {
-        var randomIndex = (int) ((Math.random()) * Engine.RANDOMRANGETONINE);
+        var randomIndex = RandomPoints.randomNumber(RandomPoints.MAXNUMBERTONINE, RandomPoints.MINNUMBER);
         return progression[randomIndex];
     }
 

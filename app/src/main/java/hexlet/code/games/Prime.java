@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RandomPoints;
 
 public class Prime {
     private static boolean isPrimeNumber(int number) {
@@ -16,7 +17,7 @@ public class Prime {
     }
 
     private static String[] questionAndCorrectAnswer() {
-        var question = Engine.randomNumber();
+        var question = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
         String correctAnswer;
         if (isPrimeNumber(question)) {
             correctAnswer = "yes";

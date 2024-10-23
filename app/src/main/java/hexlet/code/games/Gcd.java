@@ -1,11 +1,12 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RandomPoints;
 
 public class Gcd {
     private static String[] gcdEvklidMethod() {
-        var randomNumber1 = Engine.randomNumber();
-        var randomNumber2 = Engine.randomNumber();
+        var randomNumber1 = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
+        var randomNumber2 = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
 
         var maxNumber = Math.max(randomNumber1, randomNumber2);
         var minNumber = Math.min(randomNumber1, randomNumber2);

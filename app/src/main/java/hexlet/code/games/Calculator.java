@@ -1,19 +1,18 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.RandomPoints;
 
 public class Calculator {
     private static char randomSign() {
         char[] signs = {'+', '-', '*'};
-        Random random = new Random();
-        int randomIndex = random.nextInt(signs.length);
+        var randomIndex = RandomPoints.randomChoice(signs);
         return signs[randomIndex];
     }
 
     private static String[] questionAndCorrectAnswer() {
-        var randomNumber1 = Engine.randomNumber();
-        var randomNumber2 = Engine.randomNumber();
+        var randomNumber1 = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
+        var randomNumber2 = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
         var randomSign = randomSign();
         var question = randomNumber1 + " "
                 + randomSign + " " + randomNumber2;
