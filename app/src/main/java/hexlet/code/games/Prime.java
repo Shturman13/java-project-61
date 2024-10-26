@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomPoints;
+import hexlet.code.RandomUtils;
 
 public class Prime {
     private static boolean isPrimeNumber(int number) {
@@ -17,23 +17,17 @@ public class Prime {
     }
 
     private static String[] questionAndCorrectAnswer() {
-        var question = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
-        String correctAnswer;
-        if (isPrimeNumber(question)) {
-            correctAnswer = "yes";
-        } else {
-            correctAnswer = "no";
-        }
-        return new String[] {String.valueOf(question), correctAnswer};
+        var question = RandomUtils.randomNumber(RandomUtils.MAXNUMBER, RandomUtils.MINNUMBER);
+        return new String[] {String.valueOf(question), isPrimeNumber(question) ? "yes" : "no"};
     }
 
     public static void primeNumber() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        var gameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = questionAndCorrectAnswer();
             finalOutput[i] = output;
         }
-        Engine.commonEngine(finalOutput);
+        Engine.commonEngine(finalOutput, gameRules);
     }
 }

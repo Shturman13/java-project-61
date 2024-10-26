@@ -1,13 +1,13 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomPoints;
+import hexlet.code.RandomUtils;
 
 public class Progression {
     private static int[] progression() {
         int[] progression = new int[Engine.LENGTHOFPROGRESSION];
-        int increment = RandomPoints.randomNumber(RandomPoints.SMALLRANDOM, RandomPoints.MINNUMBER) + 1;
-        int initialNumber = RandomPoints.randomNumber(RandomPoints.SMALLRANDOM, RandomPoints.MINNUMBER);
+        int increment = RandomUtils.randomNumber(RandomUtils.SMALLRANDOM, RandomUtils.MINNUMBER) + 1;
+        int initialNumber = RandomUtils.randomNumber(RandomUtils.SMALLRANDOM, RandomUtils.MINNUMBER);
         progression[0] = initialNumber;
         for (var i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + increment;
@@ -16,7 +16,7 @@ public class Progression {
     }
 
     private static int randomProgressionNumber(int[] progression) {
-        var randomIndex = RandomPoints.randomNumber(RandomPoints.MAXNUMBERTONINE, RandomPoints.MINNUMBER);
+        var randomIndex = RandomUtils.randomNumber(RandomUtils.MAXNUMBERTONINE, RandomUtils.MINNUMBER);
         return progression[randomIndex];
     }
 
@@ -36,12 +36,12 @@ public class Progression {
     }
 
     public static void missingArgument() {
-        System.out.println("What number is missing in the progression?");
+        var gameRules = "What number is missing in the progression?";
         var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = stringBuilderMethod(progression());
             finalOutput[i] = output;
         }
-        Engine.commonEngine(finalOutput);
+        Engine.commonEngine(finalOutput, gameRules);
     }
 }

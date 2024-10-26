@@ -6,25 +6,23 @@ public class Engine {
     public static final int NUMBEROFATTEMPTS = 3;
     public static final int LENGTHOFPROGRESSION = 10;
 
-    private static String userName;
-//  Methods for App.java
-
-    public static void welcomeMessage(String menuItemNumber) {
-        System.out.println("Your choice: " + menuItemNumber);
+    public static String welcomeMessage() {
+        System.out.println("Your choice: " + App.choiceToPlay);
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
         Scanner scanner = new Scanner(System.in);
-        userName = scanner.next();
+        var userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
+        return userName;
     }
 
-    public static void commonEngine(String[][] finalOutput) {
+    public static void commonEngine(String[][] finalOutput, String gameRules) {
+        var userName = welcomeMessage();
+        System.out.println(gameRules);
         int counter = 0;
         Scanner scanner = new Scanner(System.in);
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             System.out.println("Question: " + finalOutput[i][0]);
-
-//            Scanner scanner = new Scanner(System.in);
             String playerAnswer = scanner.next();
             System.out.println("Your answer: " + playerAnswer);
 

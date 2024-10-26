@@ -1,18 +1,18 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomPoints;
+import hexlet.code.RandomUtils;
 
 public class Calculator {
     private static char randomSign() {
         char[] signs = {'+', '-', '*'};
-        var randomIndex = RandomPoints.randomChoice(signs);
+        var randomIndex = RandomUtils.randomNumber(signs.length - 1, 0);
         return signs[randomIndex];
     }
 
     private static String[] questionAndCorrectAnswer() {
-        var randomNumber1 = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
-        var randomNumber2 = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
+        var randomNumber1 = RandomUtils.randomNumber(RandomUtils.MAXNUMBER, RandomUtils.MINNUMBER);
+        var randomNumber2 = RandomUtils.randomNumber(RandomUtils.MAXNUMBER, RandomUtils.MINNUMBER);
         var randomSign = randomSign();
         var question = randomNumber1 + " "
                 + randomSign + " " + randomNumber2;
@@ -26,12 +26,12 @@ public class Calculator {
     }
 
     public static void calculator() {
-        System.out.println("What is the result of the expression?");
+        var gameRules = "What is the result of the expression?";
         var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = questionAndCorrectAnswer();
             finalOutput[i] = output;
         }
-        Engine.commonEngine(finalOutput);
+        Engine.commonEngine(finalOutput, gameRules);
     }
 }

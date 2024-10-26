@@ -1,12 +1,12 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomPoints;
+import hexlet.code.RandomUtils;
 
 public class Gcd {
     private static String[] gcdEvklidMethod() {
-        var randomNumber1 = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
-        var randomNumber2 = RandomPoints.randomNumber(RandomPoints.MAXNUMBER, RandomPoints.MINNUMBER);
+        var randomNumber1 = RandomUtils.randomNumber(RandomUtils.MAXNUMBER, RandomUtils.MINNUMBER);
+        var randomNumber2 = RandomUtils.randomNumber(RandomUtils.MAXNUMBER, RandomUtils.MINNUMBER);
 
         var maxNumber = Math.max(randomNumber1, randomNumber2);
         var minNumber = Math.min(randomNumber1, randomNumber2);
@@ -27,12 +27,12 @@ public class Gcd {
     }
 
     public static void findGreatestDivisor() {
-        System.out.println("Find the greatest common divisor of given numbers.");
+        var gameRules = "Find the greatest common divisor of given numbers.";
         var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = gcdEvklidMethod();
             finalOutput[i] = output;
         }
-        Engine.commonEngine(finalOutput);
+        Engine.commonEngine(finalOutput, gameRules);
     }
 }
