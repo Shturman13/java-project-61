@@ -5,11 +5,7 @@ import hexlet.code.RandomUtils;
 
 public class Even {
     private static String checkForEven(int randomNumber) {
-        if ((randomNumber % 2) == 0) {
-            return "yes";
-        } else {
-            return "no";
-        }
+        return ((randomNumber % 2) == 0) ? "yes" : "no";
     }
 
     public static void evenGame() {

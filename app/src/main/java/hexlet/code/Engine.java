@@ -7,7 +7,6 @@ public class Engine {
     public static final int LENGTHOFPROGRESSION = 10;
 
     public static String welcomeMessage() {
-        System.out.println("Your choice: " + App.choiceToPlay);
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
         Scanner scanner = new Scanner(System.in);

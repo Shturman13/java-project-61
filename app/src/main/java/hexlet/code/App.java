@@ -8,7 +8,6 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
-    public static String choiceToPlay;
 
     public static void main(String[] args) {
         var gameStartPoint = "Please enter the game number and press Enter";
@@ -21,28 +20,34 @@ public class App {
         }
 
         Scanner scanner = new Scanner(System.in);
-        choiceToPlay = scanner.next();
+        String choiceToPlay = scanner.next();
 
         switch (choiceToPlay) {
             case ("0"):
                 scanner.close();
                 break;
             case ("1"):
+                System.out.println("Your choice: " + choiceToPlay);
                 Engine.welcomeMessage();
                 break;
             case ("2"):
+                System.out.println("Your choice: " + choiceToPlay);
                 Even.evenGame();
                 break;
             case ("3"):
+                System.out.println("Your choice: " + choiceToPlay);
                 Calculator.calculator();
                 break;
             case ("4"):
+                System.out.println("Your choice: " + choiceToPlay);
                 Gcd.findGreatestDivisor();
                 break;
             case ("5"):
+                System.out.println("Your choice: " + choiceToPlay);
                 Progression.missingArgument();
                 break;
             case ("6"):
+                System.out.println("Your choice: " + choiceToPlay);
                 Prime.primeNumber();
                 break;
             default:
