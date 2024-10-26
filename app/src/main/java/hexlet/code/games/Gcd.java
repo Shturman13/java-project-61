@@ -27,12 +27,13 @@ public class Gcd {
     }
 
     public static void findGreatestDivisor() {
+        var choice = "Your choice: 4";
         var gameRules = "Find the greatest common divisor of given numbers.";
         var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = gcdEvklidMethod();
             finalOutput[i] = output;
         }
-        Engine.commonEngine(finalOutput, gameRules);
+        Engine.commonEngine(finalOutput, gameRules, choice);
     }
 }

@@ -36,12 +36,13 @@ public class Progression {
     }
 
     public static void missingArgument() {
+        var choice = "Your choice: 5";
         var gameRules = "What number is missing in the progression?";
         var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = stringBuilderMethod(progression());
             finalOutput[i] = output;
         }
-        Engine.commonEngine(finalOutput, gameRules);
+        Engine.commonEngine(finalOutput, gameRules, choice);
     }
 }

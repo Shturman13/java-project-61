@@ -9,6 +9,7 @@ public class Even {
     }
 
     public static void evenGame() {
+        var choice = "Your choice: 2";
         var gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
@@ -17,6 +18,6 @@ public class Even {
             var output = new String[]{String.valueOf(question), correctAnswer};
             finalOutput[i] = output;
         }
-        Engine.commonEngine(finalOutput, gameRules);
+        Engine.commonEngine(finalOutput, gameRules, choice);
     }
 }

@@ -15,7 +15,8 @@ public class Engine {
         return userName;
     }
 
-    public static void commonEngine(String[][] finalOutput, String gameRules) {
+    public static void commonEngine(String[][] finalOutput, String gameRules, String choice) {
+        System.out.println(choice);
         var userName = welcomeMessage();
         System.out.println(gameRules);
         int counter = 0;

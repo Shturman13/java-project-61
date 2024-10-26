@@ -31,23 +31,18 @@ public class App {
                 Engine.welcomeMessage();
                 break;
             case ("2"):
-                System.out.println("Your choice: " + choiceToPlay);
                 Even.evenGame();
                 break;
             case ("3"):
-                System.out.println("Your choice: " + choiceToPlay);
                 Calculator.calculator();
                 break;
             case ("4"):
-                System.out.println("Your choice: " + choiceToPlay);
                 Gcd.findGreatestDivisor();
                 break;
             case ("5"):
-                System.out.println("Your choice: " + choiceToPlay);
                 Progression.missingArgument();
                 break;
             case ("6"):
-                System.out.println("Your choice: " + choiceToPlay);
                 Prime.primeNumber();
                 break;
             default:

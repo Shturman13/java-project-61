@@ -26,12 +26,13 @@ public class Calculator {
     }
 
     public static void calculator() {
+        var choice = "Your choice: 3";
         var gameRules = "What is the result of the expression?";
         var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = questionAndCorrectAnswer();
             finalOutput[i] = output;
         }
-        Engine.commonEngine(finalOutput, gameRules);
+        Engine.commonEngine(finalOutput, gameRules, choice);
     }
 }

@@ -22,12 +22,13 @@ public class Prime {
     }
 
     public static void primeNumber() {
+        var choice = "Your choice: 6";
         var gameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         var finalOutput = new String[Engine.NUMBEROFATTEMPTS][2];
         for (var i = 0; i < Engine.NUMBEROFATTEMPTS; i++) {
             var output = questionAndCorrectAnswer();
             finalOutput[i] = output;
         }
-        Engine.commonEngine(finalOutput, gameRules);
+        Engine.commonEngine(finalOutput, gameRules, choice);
     }
 }
